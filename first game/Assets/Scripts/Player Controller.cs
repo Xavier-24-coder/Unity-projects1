@@ -4,11 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    Vector2 cameraRotatation;
-    Vector3 cameraOffset;
-    Transform playerCam;
+    
 
-    InputAction lookVector;
+    Camera playerCam;
+
+    Ray ray;
+
+    RaycastHit hit;
 
     Rigidbody rb;
 
@@ -17,9 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 5f;
     public float jumpHeight = 10f;
-    public float Xsensitivity = 1.0f;
-    public float Ysensitivity = 1.0f;
-    public float camRotationLimit = 90.0f;
+    public float groundDetectLength = 0.5f;
 
     public int health = 100;
     public int maxHealth = 100;
@@ -27,11 +27,11 @@ public class PlayerController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
-        cameraOffset = new Vector3(0, .5f, .5f);
+        ray = new Ray(transform.position, transform.forward);
+
         rb = GetComponent<Rigidbody>();
-        playerCam = transform.GetChild(0);
-        lookVector = GetComponent<PlayerInput>().currentActionMap.FindAction("Look");
-        cameraRotatation = Vector2.zero;
+        playerCam = Camera.main;
+       
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -51,14 +51,10 @@ public class PlayerController : MonoBehaviour
 
         //Camera Rotation System
 
-
-        cameraRotatation.x += lookVector.ReadValue<Vector2>().x * Xsensitivity;
-        cameraRotatation.y += lookVector.ReadValue<Vector2>().y * Ysensitivity;
-
-        cameraRotatation.y = Mathf.Clamp(cameraRotatation.y, -camRotationLimit, camRotationLimit);
-
-        playerCam.rotation = Quaternion.Euler(-cameraRotatation.y, cameraRotatation.x, 0);
-        transform.localRotation = Quaternion.AngleAxis(cameraRotatation.x, Vector3.up);
+        Quaternion playerRotation = playerCam.transform.rotation;
+        playerRotation.x = 0;
+        playerRotation.z = 0;
+        transform.rotation = playerRotation;
 
         //Movement system
         Vector3 temp = rb.linearVelocity;
@@ -66,7 +62,14 @@ public class PlayerController : MonoBehaviour
         temp.x = verticalMove * speed;
         temp.z = horizontalMove * speed;
 
+        ray.origin = transform.position;
+        ray.direction = -transform.up;
+        
+
+        
+
         rb.linearVelocity = (temp.x * transform.forward) + (temp.y * transform.up) + (temp.z * transform.right);
+
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -80,8 +83,9 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "killzone")
+        {
             health = 0;
-
+        }
         if (health < maxHealth)
         {
 
@@ -99,5 +103,16 @@ public class PlayerController : MonoBehaviour
         {
             health += 1;
         }
+    }
+    
+    public void Jump()
+    {
+        if(Physics.Raycast(ray, groundDetectLength))
+        {
+            
+
+            rb.AddForce (transform.up * jumpHeight, ForceMode.Impulse);
+        }
+        
     }
 }
