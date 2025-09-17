@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
        
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     // Update is called once per frame
@@ -86,15 +87,6 @@ public class PlayerController : MonoBehaviour
         {
             health = 0;
         }
-        if (health < maxHealth)
-        {
-
-            if (other.tag == "healLV1")
-            { health += 10;
-                Destroy(other.gameObject);
-            }
-        }
-
         
     }
     private void OnTriggerStay(Collider other)
@@ -104,7 +96,32 @@ public class PlayerController : MonoBehaviour
             health += 1;
         }
     }
-    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "healzone")
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if ((health < maxHealth) && (collision.gameObject.tag == "healLV1"))
+        {
+            health += 10;
+            Destroy(collision.gameObject);
+        }
+        if ((health < maxHealth) && (collision.gameObject.tag == "healLV2"))
+        {
+            health += 20;
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "BasicEnemy")
+        {
+            health -= 10;
+        }
+    }
+
     public void Jump()
     {
         if(Physics.Raycast(ray, groundDetectLength))

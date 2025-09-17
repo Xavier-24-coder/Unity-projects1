@@ -6,7 +6,9 @@ TagManager:
   tags:
   - killzone
   - healLV1
+  - healLV2
   - healzone
+  - BasicEnemy
   layers:
   - Default
   - TransparentFX
