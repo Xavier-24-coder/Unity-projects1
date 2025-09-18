@@ -4,7 +4,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    
+    public Vector3 playerposition;
+
+    public GameObject playerBullet1;
+
 
     Camera playerCam;
 
@@ -35,11 +38,16 @@ public class PlayerController : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
+        
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        playerposition = GameObject.FindGameObjectWithTag("player").transform.position;
+
         if (health <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -79,6 +87,11 @@ public class PlayerController : MonoBehaviour
 
         verticalMove = inputAxis.y;
         horizontalMove = inputAxis.x;
+    }
+
+    public void Shoot()
+    {
+        Instantiate(playerBullet1, playerposition, transform.rotation);
     }
 
     private void OnTriggerEnter(Collider other)

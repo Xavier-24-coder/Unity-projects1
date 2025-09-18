@@ -9,11 +9,13 @@ TagManager:
   - healLV2
   - healzone
   - BasicEnemy
+  - playerbullet1
+  - player
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PlayerBullets
   - Water
   - UI
   - 
