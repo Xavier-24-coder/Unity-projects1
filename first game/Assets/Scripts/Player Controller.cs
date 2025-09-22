@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     public Vector3 playerposition;
 
     public GameObject playerBullet1;
-
+    
+    
 
     Camera playerCam;
 
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     public int health = 100;
     public int maxHealth = 100;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
 
         playerposition = GameObject.FindGameObjectWithTag("player").transform.position;
 
@@ -89,9 +92,16 @@ public class PlayerController : MonoBehaviour
         horizontalMove = inputAxis.x;
     }
 
-    public void Shoot()
+    public void Shoot(InputAction.CallbackContext context)
     {
-        Instantiate(playerBullet1, playerposition, transform.rotation);
+        if (context.ReadValueAsButton().Equals(true))
+        {
+            GameObject b = Instantiate(playerBullet1, playerposition, transform.rotation);
+            b.GetComponent<Rigidbody>().linearVelocity = Vector3.forward * 20;
+            
+        }
+        
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -145,4 +155,5 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+   
 }
