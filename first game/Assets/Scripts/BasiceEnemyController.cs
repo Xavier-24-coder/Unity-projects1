@@ -4,13 +4,13 @@ using UnityEngine.AI;
 public class BasicEnemyController : MonoBehaviour
 {
     NavMeshAgent agent;
-    public int healthEmax = 10;
+    public int healthEmax;
 
-    public int healthE = 10;
+    public int healthE;
 
     public int moveToPlayerDist;
 
-    
+    public bool gotHit = false;
 
     public GameObject player;
     public GameObject enemy;
@@ -38,7 +38,12 @@ public class BasicEnemyController : MonoBehaviour
         }
         if(distance > moveToPlayerDist * 1.5)
         {
-            agent.destination = enemyposition;
+            if(gotHit == false)
+            {
+                agent.destination = enemyposition;
+                agent.destination = GameObject.Find("Player").transform.position;
+            }
+            
         }
         
         
@@ -52,10 +57,11 @@ public class BasicEnemyController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "playerbullet1")
+        if (other.tag == "proj1P")
         {
             healthE -= 1;
             Destroy(other.gameObject);
+            gotHit = true;
         }
 
         if (healthE >= healthEmax)

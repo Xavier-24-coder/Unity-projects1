@@ -11,6 +11,8 @@ TagManager:
   - BasicEnemy
   - playerbullet1
   - player
+  - weapon
+  - proj1P
   layers:
   - Default
   - TransparentFX

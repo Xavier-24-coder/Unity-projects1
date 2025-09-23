@@ -6,15 +6,19 @@ public class PlayerController : MonoBehaviour
 {
     public Vector3 playerposition;
 
-    public GameObject playerBullet1;
-    
-    
+   
 
     Camera playerCam;
 
     Ray ray;
-
+    Ray interactRay;
+    RaycastHit interactHit;
+    GameObject pickupObj;
     RaycastHit hit;
+
+    public PlayerInput input;
+    public Transform weaponSlot;
+    public Weapon currentWeapon;
 
     Rigidbody rb;
 
@@ -24,30 +28,32 @@ public class PlayerController : MonoBehaviour
     public float speed = 5f;
     public float jumpHeight = 10f;
     public float groundDetectLength = 0.5f;
+    public float interactDistance = 1f;
 
     public int health = 100;
     public int maxHealth = 100;
+
+    public bool attacking = false;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Start()
     {
+        input = GetComponent<PlayerInput>();
         ray = new Ray(transform.position, transform.forward);
-
+        interactRay = new Ray(transform.position, transform.forward);
         rb = GetComponent<Rigidbody>();
         playerCam = Camera.main;
-       
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        weaponSlot = playerCam.transform.GetChild(0);
 
         
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         playerposition = GameObject.FindGameObjectWithTag("player").transform.position;
 
@@ -76,6 +82,28 @@ public class PlayerController : MonoBehaviour
 
         ray.origin = transform.position;
         ray.direction = -transform.up;
+
+        interactRay.origin = transform.position;
+        interactRay.direction = playerCam.transform.forward;
+
+        if (Physics.Raycast(interactRay, out interactHit, interactDistance))
+        {
+            if (interactHit.collider.gameObject.tag == "weapon")
+            {
+                pickupObj = interactHit.collider.gameObject;
+            }
+        }
+        else
+            pickupObj = null;
+
+        if(currentWeapon)
+        {
+            if (currentWeapon.holdToAttack && attacking && currentWeapon)
+            {
+                currentWeapon.fire();
+            }
+        }
+        
         
 
         
@@ -92,17 +120,7 @@ public class PlayerController : MonoBehaviour
         horizontalMove = inputAxis.x;
     }
 
-    public void Shoot(InputAction.CallbackContext context)
-    {
-        if (context.ReadValueAsButton().Equals(true))
-        {
-            GameObject b = Instantiate(playerBullet1, playerposition, transform.rotation);
-            b.GetComponent<Rigidbody>().linearVelocity = Vector3.forward * 20;
-            
-        }
-        
-        
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -154,6 +172,49 @@ public class PlayerController : MonoBehaviour
             rb.AddForce (transform.up * jumpHeight, ForceMode.Impulse);
         }
         
+    }
+    public void Attack(InputAction.CallbackContext context)
+    {
+        if(currentWeapon)
+        {
+            if (currentWeapon.holdToAttack)
+            {
+                if (context.ReadValueAsButton())
+                    attacking = true;
+                else
+                    attacking = false;
+            }
+            else
+                if (context.ReadValueAsButton())
+                currentWeapon.fire();
+        }
+    }
+
+    public void Reload()
+    {
+        if(currentWeapon)
+        {
+            currentWeapon.reload();
+        }
+    }
+
+    public void Interact()
+    {
+        if (pickupObj)
+        {
+            if (pickupObj.tag == "weapon")
+                pickupObj.GetComponent<Weapon>().equip(this);
+        }
+        else
+            Reload();
+    }
+
+    public void DropWeapon()
+    {
+        if(currentWeapon)
+        {
+            currentWeapon.GetComponent<Weapon>().unequip();
+        }
     }
    
 }
