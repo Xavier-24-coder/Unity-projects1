@@ -36,18 +36,21 @@ public class BasicEnemyController : MonoBehaviour
         {
             agent.destination = GameObject.Find("Player").transform.position;
         }
-        if(distance > moveToPlayerDist * 1.5)
+        if (gotHit == false)
         {
-            if(gotHit == false)
+            if (distance > moveToPlayerDist * 1.5)
             {
                 agent.destination = enemyposition;
-                agent.destination = GameObject.Find("Player").transform.position;
+                
             }
-            
+           
         }
-        
-        
-            
+
+        if (gotHit == true)
+        {
+            agent.destination = GameObject.Find("Player").transform.position;
+        }
+
 
         if (healthE <= 0)
         {
@@ -55,18 +58,24 @@ public class BasicEnemyController : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.tag == "proj1P")
+        if (collision.gameObject.tag == "proj1P")
         {
-            healthE -= 1;
-            Destroy(other.gameObject);
+            healthE -= 2;
+            Destroy(collision.gameObject);
             gotHit = true;
         }
+        if(collision.gameObject.tag == "proj2P")
+        {
+            healthE -= 1;
+            Destroy(collision.gameObject);
+            gotHit = true;
+        }    
 
         if (healthE >= healthEmax)
         {
-            healthE = 5;
+            healthE = 10;
         }
     }
    

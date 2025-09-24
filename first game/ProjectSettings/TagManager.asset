@@ -9,10 +9,10 @@ TagManager:
   - healLV2
   - healzone
   - BasicEnemy
-  - playerbullet1
   - player
   - weapon
   - proj1P
+  - proj2P
   layers:
   - Default
   - TransparentFX
