@@ -15,6 +15,7 @@ public class BasicEnemyController : MonoBehaviour
     public GameObject player;
     public GameObject enemy;
 
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -62,16 +63,23 @@ public class BasicEnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "proj1P")
         {
-            healthE -= 2;
+            healthE -= 8;
             Destroy(collision.gameObject);
             gotHit = true;
         }
         if(collision.gameObject.tag == "proj2P")
         {
+            healthE -= 4;
+            Destroy(collision.gameObject);
+            gotHit = true;
+        }
+
+        if (collision.gameObject.tag == "proj.3P")
+        {
             healthE -= 1;
             Destroy(collision.gameObject);
             gotHit = true;
-        }    
+        }
 
         if (healthE >= healthEmax)
         {

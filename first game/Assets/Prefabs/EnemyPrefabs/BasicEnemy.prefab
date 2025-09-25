@@ -145,9 +145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408ff74d2869a3a4199f15c57ca4dabc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthEmax: 5
-  healthE: 5
+  healthEmax: 40
+  healthE: 40
   moveToPlayerDist: 15
+  gotHit: 0
   player: {fileID: 0}
   enemy: {fileID: 16584069347755989}
 --- !u!54 &2753997697279120260
@@ -176,4 +177,4 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1

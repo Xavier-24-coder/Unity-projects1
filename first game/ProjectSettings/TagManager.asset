@@ -13,6 +13,9 @@ TagManager:
   - weapon
   - proj1P
   - proj2P
+  - proj3P
+  - UI_Health
+  - pause
   layers:
   - Default
   - TransparentFX

@@ -195,6 +195,7 @@ MonoBehaviour:
   projVelocity: 750
   reloadCooldown: 2
   rof: 1
+  projAmount: 1
   fireModes: 2
   currentFireMode: 0
   clip: 40

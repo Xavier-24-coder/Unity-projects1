@@ -52,8 +52,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+    
 
         playerposition = GameObject.FindGameObjectWithTag("player").transform.position;
 
@@ -176,6 +175,11 @@ public class PlayerController : MonoBehaviour
         if(currentWeapon.weaponID == 1)
         {
             currentWeapon.GetComponent<Rifle>().changeFireMode();
+        }
+
+        if (currentWeapon.weaponID == 2)
+        {
+            currentWeapon.GetComponent<ShotGun>().changeFireMode();
         }
     }
     public void Attack(InputAction.CallbackContext context)

@@ -1,16 +1,35 @@
 using UnityEngine;
 
+
 public class ShotGun : Weapon
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void changeFireMode()
     {
-        
-    }
+        if (fireModes > 0)
+        {
+            currentFireMode++;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            if (currentFireMode >= fireModes)
+                currentFireMode = 0;
+
+            if (currentFireMode == 0)
+            {
+                clipSize = 2;
+                projAmount = 20;
+            }
+                
+
+            else
+            {
+                clipSize = 1;
+                projAmount = 40;
+                if(clip >=2)
+                {
+                    clip = 1;
+                }
+                
+            }
+
+        }
     }
 }
