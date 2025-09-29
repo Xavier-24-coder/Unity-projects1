@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+    
         if (SceneManager.GetActiveScene().buildIndex >= 1)
         {
             player = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerController>();
@@ -23,6 +24,9 @@ public class GameManager : MonoBehaviour
 
             pauseMenu = GameObject.FindGameObjectWithTag("pause");
             pauseMenu.SetActive(false);
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
     }
 
@@ -67,6 +71,8 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         LoadLevel(0);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void Resume()
