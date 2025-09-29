@@ -16,7 +16,6 @@ TagManager:
   - proj3P
   - UI_Health
   - pause
-  - ToughEnemy
   layers:
   - Default
   - TransparentFX
