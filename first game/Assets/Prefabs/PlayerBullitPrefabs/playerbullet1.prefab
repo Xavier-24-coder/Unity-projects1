@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2406848716133410316}
   - component: {fileID: 4850492739054864122}
   - component: {fileID: -6684540180230627384}
+  - component: {fileID: 3031567059533354015}
   m_Layer: 3
   m_Name: playerbullet1
   m_TagString: proj1P
@@ -136,3 +137,36 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &3031567059533354015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437761314670331124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d321fb9d7574875498267e9a89f83083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1437761314670331124}
+  weaponSpeaker: {fileID: 0}
+  firePoint: {fileID: 0}
+  firingDirection: {fileID: 0}
+  canFire: 1
+  holdToAttack: 0
+  reloading: 0
+  weaponID: 0
+  weaponName: 
+  projLifespan: 1
+  projVelocity: 1000
+  reloadCooldown: 0
+  rof: 0
+  projAmount: 0
+  fireModes: 0
+  currentFireMode: 0
+  clip: 0
+  clipSize: 0
+  ammo: 0
+  maxAmmo: 0
+  ammoRefill: 0

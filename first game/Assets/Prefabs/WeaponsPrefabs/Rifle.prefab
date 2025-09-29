@@ -192,7 +192,7 @@ MonoBehaviour:
   weaponID: 1
   weaponName: Rifle
   projLifespan: 1
-  projVelocity: 750
+  projVelocity: 200
   reloadCooldown: 2
   rof: 1
   projAmount: 1

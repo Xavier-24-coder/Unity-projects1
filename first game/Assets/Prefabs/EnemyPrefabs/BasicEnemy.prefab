@@ -151,6 +151,7 @@ MonoBehaviour:
   gotHit: 0
   player: {fileID: 0}
   enemy: {fileID: 16584069347755989}
+  HealthDrop: {fileID: 0}
 --- !u!54 &2753997697279120260
 Rigidbody:
   m_ObjectHideFlags: 0

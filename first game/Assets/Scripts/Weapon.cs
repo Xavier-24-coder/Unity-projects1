@@ -47,9 +47,13 @@ public class Weapon : MonoBehaviour
         if (canFire && !reloading && clip > 0 && weaponID > -1)
         {
             weaponSpeaker.Play();
-            GameObject p = Instantiate(projectile, firePoint.position, firePoint.rotation);
-            p.GetComponent<Rigidbody>().AddForce(firingDirection.transform.forward * projVelocity);
-            Destroy(p, projLifespan);
+            for (var i = 0; i < projAmount; i++)
+            {
+                GameObject p = Instantiate(projectile, firePoint.position, firePoint.rotation);
+                p.GetComponent<Rigidbody>().AddForce(firingDirection.transform.forward * projVelocity);
+                Destroy(p, projLifespan);
+            }
+            
             clip--;
             canFire = false;
             StartCoroutine("cooldownFire", rof);

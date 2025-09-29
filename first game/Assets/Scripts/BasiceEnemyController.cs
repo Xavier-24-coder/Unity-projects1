@@ -14,6 +14,7 @@ public class BasicEnemyController : MonoBehaviour
 
     public GameObject player;
     public GameObject enemy;
+    public GameObject HealthDrop;
 
     
 
@@ -22,7 +23,7 @@ public class BasicEnemyController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
 
-        
+       
     }
 
     // Update is called once per frame
@@ -74,16 +75,16 @@ public class BasicEnemyController : MonoBehaviour
             gotHit = true;
         }
 
-        if (collision.gameObject.tag == "proj.3P")
+        if (collision.gameObject.tag == "proj3P")
         {
-            healthE -= 1;
+            healthE -= 3;
             Destroy(collision.gameObject);
             gotHit = true;
         }
 
         if (healthE >= healthEmax)
         {
-            healthE = 10;
+            healthE = healthEmax;
         }
     }
    
