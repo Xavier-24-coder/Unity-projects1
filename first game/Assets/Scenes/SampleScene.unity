@@ -1922,6 +1922,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &658153444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3189852984879679252, guid: 058bcd279709fc94fa187cad00473197, type: 3}
+  m_PrefabInstance: {fileID: 7909309632830013769}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &706390031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3911,6 +3916,11 @@ Transform:
   - {fileID: 159083}
   m_Father: {fileID: 1074882796}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1467376584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3189852984879679252, guid: 058bcd279709fc94fa187cad00473197, type: 3}
+  m_PrefabInstance: {fileID: 7791397467222585556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1473786437
 GameObject:
   m_ObjectHideFlags: 0
@@ -5820,6 +5830,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pistol (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4378989136103110045, guid: 798949f04d58c3146a60b5453970d39c, type: 3}
+      propertyPath: projVelocity
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5985,6 +5999,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7329310563102330978, guid: 40ab2a937bc0d954fbe4499384701531, type: 3}
+      propertyPath: m_LinearDamping
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8520853346448530735, guid: 40ab2a937bc0d954fbe4499384701531, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5992,6 +6010,10 @@ PrefabInstance:
     - target: {fileID: 8520853346448530735, guid: 40ab2a937bc0d954fbe4499384701531, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9219289843604342872, guid: 40ab2a937bc0d954fbe4499384701531, type: 3}
+      propertyPath: jumpHeight
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9219289843604342872, guid: 40ab2a937bc0d954fbe4499384701531, type: 3}
       propertyPath: weaponSlot
@@ -6128,6 +6150,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 769391514364578424, guid: 058bcd279709fc94fa187cad00473197, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1467376584}
+    - target: {fileID: 769391514364578424, guid: 058bcd279709fc94fa187cad00473197, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 505691620}
+    - target: {fileID: 769391514364578424, guid: 058bcd279709fc94fa187cad00473197, type: 3}
+      propertyPath: moveToPlayerDist
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3189852984879679252, guid: 058bcd279709fc94fa187cad00473197, type: 3}
       propertyPath: m_Name
       value: FastEnemy (1)
@@ -6185,6 +6219,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 769391514364578424, guid: 058bcd279709fc94fa187cad00473197, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 658153444}
+    - target: {fileID: 769391514364578424, guid: 058bcd279709fc94fa187cad00473197, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 505691620}
+    - target: {fileID: 769391514364578424, guid: 058bcd279709fc94fa187cad00473197, type: 3}
+      propertyPath: moveToPlayerDist
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3189852984879679252, guid: 058bcd279709fc94fa187cad00473197, type: 3}
       propertyPath: m_Name
       value: FastEnemy
