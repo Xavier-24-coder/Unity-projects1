@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ca1862149fd3f43be3f68e73d184b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1437761314670331124, guid: 4078fb5a426a2504da0921ab9a6136b2, type: 3}
+  projectile: {fileID: 5736317559995508049, guid: 4078fb5a426a2504da0921ab9a6136b2, type: 3}
   weaponSpeaker: {fileID: 3197756071462013459}
   firePoint: {fileID: 4462039234001947574}
   firingDirection: {fileID: 0}

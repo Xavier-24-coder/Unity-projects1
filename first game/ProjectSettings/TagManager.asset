@@ -16,6 +16,9 @@ TagManager:
   - proj3P
   - UI_Health
   - pause
+  - gameover
+  - UI_BossHealth
+  - UI_BossHealthBG
   layers:
   - Default
   - TransparentFX

@@ -152,10 +152,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8520853346448530735}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 5
+  m_LinearDamping: 2
+  m_AngularDamping: 5
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -407,7 +407,7 @@ MonoBehaviour:
   weaponSlot: {fileID: 0}
   currentWeapon: {fileID: 0}
   speed: 8
-  jumpHeight: 5
+  jumpHeight: 13
   groundDetectLength: 1.01
   interactDistance: 2.5
   health: 100

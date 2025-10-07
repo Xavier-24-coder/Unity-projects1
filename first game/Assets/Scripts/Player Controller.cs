@@ -56,11 +56,8 @@ public class PlayerController : MonoBehaviour
 
         playerposition = GameObject.FindGameObjectWithTag("player").transform.position;
 
-        if (health <= 0)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
 
+        
         if (health > maxHealth)
         {
             health = maxHealth;

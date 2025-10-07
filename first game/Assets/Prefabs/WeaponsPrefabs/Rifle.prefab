@@ -150,10 +150,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4094546544648154019}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c87ac320a4bebd4097d872b2d00fb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 7951416267294127494, guid: c0db739015e060244a8afc21f1ccda40, type: 3}
+  projectile: {fileID: 1663708357342275665, guid: c0db739015e060244a8afc21f1ccda40, type: 3}
   weaponSpeaker: {fileID: 7571863180889464662}
   firePoint: {fileID: 7683374279372449922}
   firingDirection: {fileID: 0}

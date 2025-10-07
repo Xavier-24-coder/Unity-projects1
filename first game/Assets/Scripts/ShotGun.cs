@@ -22,7 +22,7 @@ public class ShotGun : Weapon
             else
             {
                 
-                projAmount = 16;
+                projAmount = 24;
                 if(clip >=2)
                 {
                     clip = 1;
