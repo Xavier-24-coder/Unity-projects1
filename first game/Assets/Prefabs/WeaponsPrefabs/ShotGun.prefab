@@ -165,7 +165,7 @@ MonoBehaviour:
   weaponID: 2
   weaponName: ShotGun
   projLifespan: 1
-  projVelocity: 150
+  projVelocity: 200
   reloadCooldown: 4
   rof: 0
   projAmount: 8
@@ -188,7 +188,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -197,7 +197,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 2
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

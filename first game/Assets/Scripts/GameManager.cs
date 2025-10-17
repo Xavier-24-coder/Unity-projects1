@@ -50,17 +50,19 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetActiveScene().buildIndex >= 1)
         {
             healthBar.fillAmount = (float)player.health / (float)player.maxHealth;
+
+            if (player.health <= 0)
+            {
+                Gameover = true;
+            }
+            if (Gameover == true)
+            {
+                gameOverMenu.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
         }
-        if (player.health <= 0)
-        {
-            Gameover = true;
-        }
-        if (Gameover == true)
-        {
-            gameOverMenu.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+       
     }
 
     public void Restart()

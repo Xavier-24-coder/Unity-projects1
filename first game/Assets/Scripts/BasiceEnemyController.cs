@@ -3,14 +3,19 @@ using UnityEngine.AI;
 
 public class BasicEnemyController : MonoBehaviour
 {
+    Animator myAnim;
     NavMeshAgent agent;
     public int healthEmax;
 
     public int healthE;
 
+    
     public int moveToPlayerDist;
+    public int AttackDist;
+    Vector3 destination;
 
-    public bool gotHit = false;
+    public bool gotHit;
+    public bool isStopped;
 
     public GameObject player;
     public GameObject enemy;
@@ -22,8 +27,9 @@ public class BasicEnemyController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
-       
+        myAnim = GetComponent<Animator>();
+        
+        
     }
 
     // Update is called once per frame
@@ -34,23 +40,34 @@ public class BasicEnemyController : MonoBehaviour
 
         float distance = Vector3.Distance(playerposition, enemyposition);
 
-        if(distance < moveToPlayerDist)
+        destination = GameObject.Find("player").transform.position;
+        agent.destination = destination;
+
+        if (gotHit = false && distance < moveToPlayerDist)
         {
-            agent.destination = GameObject.Find("Player").transform.position;
+            
+            agent.isStopped = false;
+            
         }
-        if (gotHit == false)
+        if (distance > moveToPlayerDist * 1.75)
         {
-            if (distance > moveToPlayerDist * 1.5)
-            {
-                agent.destination = enemyposition;
-                
-            }
-           
+            agent.isStopped = true;
         }
+     
+        if (distance < AttackDist)
+        {
+            myAnim.SetBool("isAttacking", true);
+        }
+        else
+        {
+            myAnim.SetBool("isAttacking", false);
+        }
+        
 
         if (gotHit == true)
         {
-            agent.destination = GameObject.Find("Player").transform.position;
+            agent.destination = GameObject.Find("player").transform.position;
+            agent.isStopped = false;
         }
 
 

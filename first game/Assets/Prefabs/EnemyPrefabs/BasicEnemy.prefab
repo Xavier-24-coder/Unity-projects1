@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2892090169748150554}
   - component: {fileID: 8668523375703986755}
   - component: {fileID: 2753997697279120260}
+  - component: {fileID: 1638881606013786356}
   m_Layer: 0
   m_Name: BasicEnemy
   m_TagString: BasicEnemy
@@ -147,8 +148,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthEmax: 40
   healthE: 40
-  moveToPlayerDist: 15
+  moveToPlayerDist: 10
+  AttackDist: 0
   gotHit: 0
+  isStopped: 0
   player: {fileID: 0}
   enemy: {fileID: 16584069347755989}
   HealthDrop: {fileID: 0}
@@ -159,10 +162,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16584069347755989}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 99
-  m_Drag: 0
-  m_AngularDrag: 0
+  m_LinearDamping: 0
+  m_AngularDamping: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -179,3 +182,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!95 &1638881606013786356
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16584069347755989}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 088463dfe9699d24d8da7a30985874d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

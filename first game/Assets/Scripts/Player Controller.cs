@@ -157,6 +157,10 @@ public class PlayerController : MonoBehaviour
         {
             health -= 10;
         }
+        if (collision.gameObject.tag == "spike enemy")
+        {
+            health -= 15;
+        }
     }
 
     public void Jump()

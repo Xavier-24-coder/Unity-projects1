@@ -407,7 +407,7 @@ MonoBehaviour:
   weaponSlot: {fileID: 0}
   currentWeapon: {fileID: 0}
   speed: 8
-  jumpHeight: 13
+  jumpHeight: 9
   groundDetectLength: 1.01
   interactDistance: 2.5
   health: 100

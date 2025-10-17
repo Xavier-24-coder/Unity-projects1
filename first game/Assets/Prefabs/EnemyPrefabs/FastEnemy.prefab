@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 121017451180989667}
   - component: {fileID: 769391514364578424}
   - component: {fileID: 7387035747007254866}
+  - component: {fileID: 7419280144306553428}
   m_Layer: 0
   m_Name: FastEnemy
   m_TagString: BasicEnemy
@@ -147,10 +148,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthEmax: 30
   healthE: 30
-  moveToPlayerDist: 0
+  moveToPlayerDist: 10
+  AttackDist: 0
   gotHit: 0
+  isStopped: 0
   player: {fileID: 0}
-  enemy: {fileID: 0}
+  enemy: {fileID: 3189852984879679252}
   HealthDrop: {fileID: 0}
 --- !u!54 &7387035747007254866
 Rigidbody:
@@ -159,10 +162,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3189852984879679252}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 99
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -179,3 +182,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &7419280144306553428
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3189852984879679252}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 088463dfe9699d24d8da7a30985874d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

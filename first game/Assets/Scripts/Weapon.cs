@@ -8,6 +8,7 @@ public class Weapon : MonoBehaviour
     PlayerController player;
 
     public GameObject projectile;
+    public AudioClip[] weaponSounds;
     public AudioSource weaponSpeaker;
     public Transform firePoint;
     public Camera firingDirection;
@@ -40,12 +41,15 @@ public class Weapon : MonoBehaviour
     {
         weaponSpeaker = GetComponent<AudioSource>();
         firePoint = transform.GetChild(0);
+
+        
     }
 
     public void fire()
     {
         if (canFire && !reloading && clip > 0 && weaponID > -1)
         {
+            
             weaponSpeaker.Play();
             for (var i = 0; i < projAmount; i++)
             {
