@@ -161,6 +161,10 @@ public class PlayerController : MonoBehaviour
         {
             health -= 15;
         }
+        if (collision.gameObject.tag == "Spike")
+        {
+            health -= 20
+        }
     }
 
     public void Jump()
