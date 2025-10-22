@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
 {
     PlayerController player;
 
+    public Animator myAnim;
     public GameObject projectile;
     public AudioClip[] weaponSounds;
     public AudioSource weaponSpeaker;
@@ -41,15 +42,21 @@ public class Weapon : MonoBehaviour
     {
         weaponSpeaker = GetComponent<AudioSource>();
         firePoint = transform.GetChild(0);
-
+        myAnim = GetComponent<Animator>();
         
+
     }
+    
+
+
 
     public void fire()
     {
         if (canFire && !reloading && clip > 0 && weaponID > -1)
         {
-            
+            myAnim.SetBool("IsFire", true);
+
+
             weaponSpeaker.Play();
             for (var i = 0; i < projAmount; i++)
             {
@@ -61,7 +68,11 @@ public class Weapon : MonoBehaviour
             clip--;
             canFire = false;
             StartCoroutine("cooldownFire", rof);
+          
+            
+            myAnim.SetBool("IsReloading", false);
         }
+        
     }
 
     public void reload()
@@ -85,10 +96,16 @@ public class Weapon : MonoBehaviour
                 ammo -= reloadCount;
             }
 
+            
+                myAnim.SetBool("IsReloading", true);
+            
+                
             reloading = true;
             canFire = false;
             StartCoroutine("reloadingCooldown");
+            
             return;
+            
         }
     }
 
@@ -121,10 +138,12 @@ public class Weapon : MonoBehaviour
 
     IEnumerator cooldownFire()
     {
-        yield return new WaitForSeconds(rof);
 
+        yield return new WaitForSeconds(rof);
+        myAnim.SetBool("IsFire", false);
         if (clip > 0)
             canFire = true;
+
     }
 
 

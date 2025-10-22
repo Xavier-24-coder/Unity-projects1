@@ -21,6 +21,7 @@ TagManager:
   - UI_BossHealthBG
   - spike enemy
   - Spike
+  - LevelTransition
   layers:
   - Default
   - TransparentFX

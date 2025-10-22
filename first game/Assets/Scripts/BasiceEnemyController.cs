@@ -15,7 +15,7 @@ public class BasicEnemyController : MonoBehaviour
     Vector3 destination;
 
     public bool gotHit;
-    public bool isStopped;
+    
 
     public GameObject player;
     public GameObject enemy;
@@ -58,7 +58,7 @@ public class BasicEnemyController : MonoBehaviour
         {
             myAnim.SetBool("isAttacking", true);
         }
-        else
+        if (distance > AttackDist)
         {
             myAnim.SetBool("isAttacking", false);
         }

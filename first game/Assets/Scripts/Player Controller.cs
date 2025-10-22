@@ -124,6 +124,10 @@ public class PlayerController : MonoBehaviour
         {
             health = 0;
         }
+        if (other.tag == "LevelTransition")
+        {
+            SceneManager.LoadScene(3);
+        }
         
     }
     private void OnTriggerStay(Collider other)
@@ -163,7 +167,7 @@ public class PlayerController : MonoBehaviour
         }
         if (collision.gameObject.tag == "Spike")
         {
-            health -= 20
+            health -= 20;
         }
     }
 
