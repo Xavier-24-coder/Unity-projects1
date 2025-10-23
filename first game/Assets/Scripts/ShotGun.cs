@@ -14,20 +14,18 @@ public class ShotGun : Weapon
 
             if (currentFireMode == 0)
             {
-                
+
                 projAmount = 8;
             }
-                
-
             else
             {
-                
+                clipSize = 1;
                 projAmount = 24;
-                if(clip >=2)
+                if (clip >= 2)
                 {
                     clip = 1;
                 }
-                
+
             }
 
         }

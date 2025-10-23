@@ -43,33 +43,34 @@ public class BasicEnemyController : MonoBehaviour
         destination = GameObject.Find("player").transform.position;
         agent.destination = destination;
 
-        if (gotHit = false && distance < moveToPlayerDist)
-        {
-            
-            agent.isStopped = false;
-            
-        }
-        if (distance > moveToPlayerDist * 1.75)
-        {
-            agent.isStopped = true;
-        }
-     
-        if (distance < AttackDist)
-        {
-            myAnim.SetBool("isAttacking", true);
-        }
-        if (distance > AttackDist)
-        {
-            myAnim.SetBool("isAttacking", false);
-        }
-        
-
         if (gotHit == true)
         {
-            agent.destination = GameObject.Find("player").transform.position;
             agent.isStopped = false;
         }
+        else
+        {
+            if (distance < moveToPlayerDist)
+            {
 
+                agent.isStopped = false;
+
+            }
+            if (distance > moveToPlayerDist * 1.75)
+            {
+                agent.isStopped = true;
+            }
+
+            if (distance < AttackDist)
+            {
+                myAnim.SetBool("isAttacking", true);
+            }
+            if (distance > AttackDist)
+            {
+                myAnim.SetBool("isAttacking", false);
+            }
+        }
+        
+       
 
         if (healthE <= 0)
         {

@@ -124,10 +124,7 @@ public class PlayerController : MonoBehaviour
         {
             health = 0;
         }
-        if (other.tag == "LevelTransition")
-        {
-            SceneManager.LoadScene(3);
-        }
+       
         
     }
     private void OnTriggerStay(Collider other)
@@ -147,6 +144,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "LevelTransition")
+        {
+            SceneManager.LoadScene(2);
+        }
         if ((health < maxHealth) && (collision.gameObject.tag == "healLV1"))
         {
             health += 10;
