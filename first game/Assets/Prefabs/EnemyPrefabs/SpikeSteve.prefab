@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3b4b44ebda38224abf5fc8884f634a3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 71.12152
+      value: 13.777927
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3b4b44ebda38224abf5fc8884f634a3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.65
+      value: 18.54
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3b4b44ebda38224abf5fc8884f634a3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.22651
+      value: 84.93726
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3b4b44ebda38224abf5fc8884f634a3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -240,11 +240,10 @@ MonoBehaviour:
   healthE: 50
   moveToPlayerDist: 10
   AttackDist: 6
-  gotHit: 1
-  isStopped: 0
+  gotHit: 0
   player: {fileID: 0}
   enemy: {fileID: 5556515200717093874}
-  HealthDrop: {fileID: 0}
+  HealthDrop: {fileID: 5143104445913320074, guid: 6cbc99949e177f540b7bbf24f32bae91, type: 3}
 --- !u!54 &8562041423675111401
 Rigidbody:
   m_ObjectHideFlags: 0

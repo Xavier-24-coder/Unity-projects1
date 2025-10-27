@@ -148,13 +148,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthEmax: 40
   healthE: 40
-  moveToPlayerDist: 10
+  moveToPlayerDist: 20
   AttackDist: 0
   gotHit: 0
-  isStopped: 0
   player: {fileID: 0}
   enemy: {fileID: 16584069347755989}
-  HealthDrop: {fileID: 0}
+  HealthDrop: {fileID: 2379316800991442257, guid: 55337c2929998294bb8ff307c13f372c, type: 3}
 --- !u!54 &2753997697279120260
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -74,6 +74,12 @@ public class BasicEnemyController : MonoBehaviour
 
         if (healthE <= 0)
         {
+            if (Random.Range(0, 100) < 25) //25% chance of happening
+            {
+                GameObject H = Instantiate(HealthDrop);
+            }
+            
+
             Destroy(gameObject);
         }
 
