@@ -162,10 +162,6 @@ public class PlayerController : MonoBehaviour
         {
             health -= 10;
         }
-        if (collision.gameObject.tag == "spike enemy")
-        {
-            health -= 15;
-        }
         if (collision.gameObject.tag == "Spike")
         {
             health -= 20;

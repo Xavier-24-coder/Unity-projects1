@@ -13,15 +13,20 @@ public class GameManager : MonoBehaviour
 
     GameObject pauseMenu;
     GameObject gameOverMenu;
-
+    GameObject[] enemys;
+    public bool enemysDie;
     public bool isPaused = false;
 
     public bool Gameover = false;
 
+    public static GameManager Instance;
+
+    private int enemyCount;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-    
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("BasicEnemy");
+        enemyCount = enemies.Length;
         if (SceneManager.GetActiveScene().buildIndex >= 1)
         {
             player = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerController>();
@@ -35,7 +40,7 @@ public class GameManager : MonoBehaviour
             gameOverMenu = GameObject.FindGameObjectWithTag("gameover");
             gameOverMenu.SetActive(false);
 
-          
+            enemys = GameObject.FindGameObjectsWithTag("BasicEnemy");
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -43,10 +48,21 @@ public class GameManager : MonoBehaviour
             bossHealthBarBG.enabled = false;
         }
     }
-
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     // Update is called once per frame
     void Update()
     {
+        enemys = GameObject.FindGameObjectsWithTag("BasicEnemy");
         if (SceneManager.GetActiveScene().buildIndex >= 1)
         {
             healthBar.fillAmount = (float)player.health / (float)player.maxHealth;
@@ -57,14 +73,29 @@ public class GameManager : MonoBehaviour
             }
             if (Gameover == true)
             {
+                Time.timeScale = 0;
                 gameOverMenu.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
             }
+            
         }
        
     }
+    public void EnemyDied()
+    {
+        enemyCount--;
+        Debug.Log("Enemies remaining: " + enemyCount);
 
+        if (enemyCount <= 0)
+        {
+            AllEnemiesDefeated();
+        }
+    }
+    void AllEnemiesDefeated()
+    {
+        SceneManager.LoadScene(3);
+    }
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -91,6 +122,10 @@ public class GameManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void LoadTestS()
+    {
+        SceneManager.LoadScene(4);
     }
     public void LoadLevel(int level)
     {

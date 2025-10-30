@@ -19,7 +19,6 @@ TagManager:
   - gameover
   - UI_BossHealth
   - UI_BossHealthBG
-  - spike enemy
   - Spike
   - LevelTransition
   layers:

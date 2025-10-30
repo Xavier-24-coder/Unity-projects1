@@ -5,7 +5,7 @@ public class ShotGun : Weapon
 {
     public void changeFireMode()
     {
-        if (fireModes > 0)
+        if (fireModes > 0 && ammo > 0)
         {
             currentFireMode++;
 
@@ -14,7 +14,7 @@ public class ShotGun : Weapon
 
             if (currentFireMode == 0)
             {
-
+                
                 reloadCooldown = 2;
                 projAmount = 8;
             }
