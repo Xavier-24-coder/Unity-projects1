@@ -124,6 +124,10 @@ public class PlayerController : MonoBehaviour
         {
             health = 0;
         }
+        if (other.tag == "Toend")
+        {
+            SceneManager.LoadScene(3);
+        }
        
         
     }
@@ -217,8 +221,12 @@ public class PlayerController : MonoBehaviour
         if (pickupObj)
         {
             if (pickupObj.tag == "weapon")
-                pickupObj.GetComponent<Weapon>().equip(this);
+            {
+                if (currentWeapon)
+                    DropWeapon();
 
+                pickupObj.GetComponent<Weapon>().equip(this);
+            }
             pickupObj = null;
         }
         else

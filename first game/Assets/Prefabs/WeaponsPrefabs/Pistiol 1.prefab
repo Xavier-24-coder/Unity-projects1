@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8cda6895c5a83544ab6c7ab4d4ab941d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.4302
+      value: -3.13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8cda6895c5a83544ab6c7ab4d4ab941d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8cda6895c5a83544ab6c7ab4d4ab941d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.9135
+      value: 37.63
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8cda6895c5a83544ab6c7ab4d4ab941d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -216,7 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myAnim: {fileID: 6450630885033255593}
   projectile: {fileID: 5736317559995508049, guid: 4078fb5a426a2504da0921ab9a6136b2, type: 3}
-  weaponSounds: []
+  weaponSounds:
+  - {fileID: 8300000, guid: a234b1a62f7e9f4459aeea6848a6a7e4, type: 3}
   weaponSpeaker: {fileID: 6507574393467974828}
   firePoint: {fileID: 8416245648169490132}
   firingDirection: {fileID: 0}

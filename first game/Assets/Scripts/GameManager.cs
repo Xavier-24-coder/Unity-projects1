@@ -13,21 +13,22 @@ public class GameManager : MonoBehaviour
 
     GameObject pauseMenu;
     GameObject gameOverMenu;
-    GameObject[] enemys;
-    public bool enemysDie;
+    
+    
     public bool isPaused = false;
 
     public bool Gameover = false;
+    
 
     public static GameManager Instance;
 
-    private int enemyCount;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("BasicEnemy");
-        enemyCount = enemies.Length;
-        if (SceneManager.GetActiveScene().buildIndex >= 1)
+        
+        if (SceneManager.GetActiveScene().buildIndex >= 1 && SceneManager.GetActiveScene().buildIndex < 4)
         {
             player = GameObject.FindGameObjectWithTag("player").GetComponent<PlayerController>();
             healthBar = GameObject.FindGameObjectWithTag("UI_Health").GetComponent<Image>();
@@ -39,8 +40,9 @@ public class GameManager : MonoBehaviour
 
             gameOverMenu = GameObject.FindGameObjectWithTag("gameover");
             gameOverMenu.SetActive(false);
-
-            enemys = GameObject.FindGameObjectsWithTag("BasicEnemy");
+            
+            
+            
 
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemys = GameObject.FindGameObjectsWithTag("BasicEnemy");
+        
         if (SceneManager.GetActiveScene().buildIndex >= 1)
         {
             healthBar.fillAmount = (float)player.health / (float)player.maxHealth;
@@ -82,20 +84,8 @@ public class GameManager : MonoBehaviour
         }
        
     }
-    public void EnemyDied()
-    {
-        enemyCount--;
-        Debug.Log("Enemies remaining: " + enemyCount);
-
-        if (enemyCount <= 0)
-        {
-            AllEnemiesDefeated();
-        }
-    }
-    void AllEnemiesDefeated()
-    {
-        SceneManager.LoadScene(3);
-    }
+    
+    
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

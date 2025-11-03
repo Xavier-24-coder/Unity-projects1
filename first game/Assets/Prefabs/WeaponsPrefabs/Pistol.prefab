@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8370107130194976596}
   - component: {fileID: 4378989136103110045}
   - component: {fileID: 3197756071462013459}
+  - component: {fileID: 2469968940006650482}
   m_Layer: 0
   m_Name: Pistol
   m_TagString: weapon
@@ -151,7 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ca1862149fd3f43be3f68e73d184b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAnim: {fileID: 0}
   projectile: {fileID: 5736317559995508049, guid: 4078fb5a426a2504da0921ab9a6136b2, type: 3}
+  weaponSounds: []
   weaponSpeaker: {fileID: 3197756071462013459}
   firePoint: {fileID: 4462039234001947574}
   firingDirection: {fileID: 0}
@@ -269,6 +272,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2469968940006650482
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2343273356435724880}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d807646b155a5ae4b97081f7e7432f9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5467102564775664810
 GameObject:
   m_ObjectHideFlags: 0

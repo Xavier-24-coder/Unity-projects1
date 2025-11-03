@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 610650164107524967}
   - component: {fileID: 4831066718278816826}
   - component: {fileID: 7571863180889464662}
+  - component: {fileID: 105887059837273783}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: weapon
@@ -182,7 +183,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c87ac320a4bebd4097d872b2d00fb21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAnim: {fileID: 0}
   projectile: {fileID: 1663708357342275665, guid: c0db739015e060244a8afc21f1ccda40, type: 3}
+  weaponSounds: []
   weaponSpeaker: {fileID: 7571863180889464662}
   firePoint: {fileID: 7683374279372449922}
   firingDirection: {fileID: 0}
@@ -300,3 +303,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &105887059837273783
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4094546544648154019}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d807646b155a5ae4b97081f7e7432f9d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -54,10 +54,10 @@ public class Weapon : MonoBehaviour
     {
         if (canFire && !reloading && clip > 0 && weaponID > -1)
         {
-            myAnim.SetBool("IsFire", true);
+            
 
 
-            weaponSpeaker.Play();
+            weaponSpeaker.Play(0);
             for (var i = 0; i < projAmount; i++)
             {
                 GameObject p = Instantiate(projectile, firePoint.position, firePoint.rotation);
@@ -68,8 +68,8 @@ public class Weapon : MonoBehaviour
             clip--;
             canFire = false;
             StartCoroutine("cooldownFire", rof);
-          
-            
+
+            myAnim.SetBool("IsFire", true);
             myAnim.SetBool("IsReloading", false);
         }
         
